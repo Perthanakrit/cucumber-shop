@@ -11,7 +11,10 @@ public class Product {
         this.stock = stock;
     }
 
-    public void cutStock(int quantity) {
+    public void cutStock(int quantity) throws IllegalArgumentException {
+        if (quantity > this.getStock()) {
+            throw new IllegalArgumentException("The product has not enough stock.");
+        }
         stock -= quantity;
     }
 
